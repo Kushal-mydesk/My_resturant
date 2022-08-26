@@ -22,7 +22,7 @@ db.once('open' , () => {
     console.log("Connected to database");
 });
 
-
+require("./routes/restaurant.route")(app);
 
 
 
