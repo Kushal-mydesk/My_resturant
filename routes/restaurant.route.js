@@ -8,4 +8,8 @@ module.exports = (app) => {
     app.get("/fmr/api/restaurant", restaurant_controller.getAllRestaurants);
 
 
+    //This is the route for all the Restaurant's Categories
+    app.get("/fmr/api/restaurant/categories", restaurant_controller.getCategories);
+
+
 }
