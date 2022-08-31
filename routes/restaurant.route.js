@@ -19,4 +19,8 @@ module.exports = (app) => {
 
     //This is the route for getting the restaurant by Rating
     app.get("/fmr/api/restaurant/rating/:ratingValue", restaurant_controller.getRestaurantsByRating);
+
+
+    //This is the route for Updatting a particular restaurant
+    app.put("/fmr/api/restaurant/:id",restaurant_controller.updateRestaurant);
 }
