@@ -166,4 +166,40 @@ exports.updateRestaurant = async(req, res) => {
     }
 }
 
+exports.deleteRestaurant = async(req,res) => {
 
+    try{
+        const restaurant = await Restaurant.findById(req.params.id);
+        if(!restaurant){
+            res.status(404).send({
+                message : " No restaurant Found with the given ID"
+            });
+        }else{
+            const updated = await Restaurant.deleteOne({_id :restaurant._id});
+            res.status(200).send({
+                restaurant : restaurant,
+                message : "Restaurant deleted successfully."
+            })
+        }
+    }catch(err){
+        console.log("Some error while",err.message);
+        res.status(500).send({
+            message : " Some error occured while deleting the Restaurant."
+        })
+    }
+
+}
+exports.deleteAll =async(req,res) => {
+
+    try{
+        const restaurant = await Restaurant.deleteMany({});
+        res.status(200).send({
+            restaurants : restaurant,
+            message: "Restaurants Deleted Succesfully"
+        });
+    }catch(err){
+        console.log("Some error occured while deleting",err.message);
+
+    }
+
+}

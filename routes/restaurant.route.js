@@ -23,4 +23,11 @@ module.exports = (app) => {
 
     //This is the route for Updatting a particular restaurant
     app.put("/fmr/api/restaurant/:id",restaurant_controller.updateRestaurant);
+
+    //This is the route for deleting a particular restaurant 
+    app.delete("/fmr/api/restaurant/:id", restaurant_controller.deleteRestaurant);
+
+
+    //This is the route for deleting all the restaurants
+    app.delete("/fmr/api/restaurant",restaurant_controller.deleteAll);
 }
